@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>블로그 홈</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="p-5 mb-5 text-center</> bg-light">
+    <h1 class="mb-3">My Blog</h1>
+    <h4 class="mb-3">블로그에 오신 것을 환영합니다.</h4>
+</div>
+
+<div>
+    <nav style="float: left; height: 800px; width: 300px;" >
+        <h1>principal</h1>
+        <h1 th:text="${principal}"></h1>
+
+        <div>
+            <h3>groups</h3>
+            <div th:each="item : ${groups}">
+                <button type="button" th:text="${item.groupId}"></button>
+            </div>
+        </div>
+        <button type="button" id="createGroup-btn" class="btn btn-secondary btn-sm mb-3">make group</button>
+    </nav>
+
+    <div class="container">
+
+        <img src="./../static/img/canender.png">
+
+    </div>
+</div>
+
+<script src="/js/group.js"></script>
+</body>

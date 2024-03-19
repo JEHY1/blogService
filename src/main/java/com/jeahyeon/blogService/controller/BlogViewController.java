@@ -69,4 +69,16 @@ public class BlogViewController {
 
         return "newArticle";
     }
+
+    @GetMapping("/home")
+    public String home(Model model){
+
+        List<GroupViewResponse> groups = userGroupService.findByUserEmail(SecurityContextHolder.getContext().getAuthentication().getName())
+                .stream()
+                .map(GroupViewResponse::new)
+                .toList();
+        model.addAttribute("groups", groups);
+
+        return "home";
+    }
 }

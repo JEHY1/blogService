@@ -31,6 +31,8 @@ public class Article {
     @Column(name = "author", nullable = false)
     private String author;
 
+    @Column(name = "group", nullable = false)
+    private Long group;
 
     @CreatedDate
     @Column(name = "created_at")
@@ -42,10 +44,11 @@ public class Article {
 
 
     @Builder
-    public Article(String title, String content, String author) {
+    public Article(String title, String content, String author, Long group) {
         this.title = title;
         this.content = content;
         this.author = author;
+        this.group = group;
     }
 
     public void update(String title, String content) {

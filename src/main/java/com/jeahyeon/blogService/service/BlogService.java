@@ -56,4 +56,9 @@ public class BlogService {
             throw new IllegalArgumentException("not authorized");
         }
     }
+
+    public List<Article> findByGroup(Long group){
+        return blogRepository.findByGroup(group)
+                .orElseThrow(() -> new IllegalArgumentException("group not found"));
+    }
 }

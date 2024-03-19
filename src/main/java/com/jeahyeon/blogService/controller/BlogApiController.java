@@ -1,10 +1,8 @@
 package com.jeahyeon.blogService.controller;
 
+import com.jeahyeon.blogService.dto.*;
 import lombok.RequiredArgsConstructor;
 import com.jeahyeon.blogService.domain.Article;
-import com.jeahyeon.blogService.dto.AddArticleRequest;
-import com.jeahyeon.blogService.dto.ArticleResponse;
-import com.jeahyeon.blogService.dto.UpdateArticleRequest;
 import com.jeahyeon.blogService.service.BlogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -62,4 +60,14 @@ public class BlogApiController {
                 .body(updatedArticle);
     }
 
+    @GetMapping("/api/groupArticles")
+    public ResponseEntity<List<ArticleResponse>> groupArticles(@RequestBody GroupArticleListViewRequest request){
+        List<ArticleResponse> articles = blogService.findByGroup(request.getGroupId())
+                .stream()
+                .map(ArticleResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(articles);
+    }
 }
