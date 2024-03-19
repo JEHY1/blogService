@@ -3,6 +3,7 @@ package com.jeahyeon.blogService.service;
 import com.jeahyeon.blogService.domain.GroupMaker;
 import com.jeahyeon.blogService.domain.UserGroup;
 import com.jeahyeon.blogService.dto.AddGroupMakerRequest;
+import com.jeahyeon.blogService.dto.InviteRequest;
 import com.jeahyeon.blogService.repository.GroupMakerRepository;
 import com.jeahyeon.blogService.repository.UserGroupRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,8 @@ public class UserGroupService {
 
     private final GroupMakerRepository groupMakerRepository;
 
-    public List<UserGroup> findByGroupId(Long groupId){
-        return userGroupRepository.findByGroupId(groupId)
+    public List<UserGroup> findByUserEmail(String userEmail){
+        return userGroupRepository.findByUserEmail(userEmail)
                 .orElseThrow(() -> new IllegalArgumentException("not found groupId"));
     }
 
@@ -33,4 +34,13 @@ public class UserGroupService {
 
         return groupMaker;
     }
+
+    public UserGroup invite(InviteRequest request){
+        return userGroupRepository.save(request.toEntity());
+    }
+
+    public List<UserGroup> findAll(){
+        return userGroupRepository.findAll();
+    }
+
 }

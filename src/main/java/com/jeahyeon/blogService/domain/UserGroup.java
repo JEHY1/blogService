@@ -1,12 +1,14 @@
 package com.jeahyeon.blogService.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user_group")
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserGroup {
 
     @Id

@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface UserGroupRepository extends JpaRepository<UserGroup, Long> {
 
-    Optional<List<UserGroup>> findByGroupId(Long GroupId);
+    Optional<List<UserGroup>> findByUserEmail(String userEmail);
 }

@@ -1,5 +1,6 @@
 package com.jeahyeon.blogService.service;
 
+import com.jeahyeon.blogService.domain.UserGroup;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import com.jeahyeon.blogService.domain.Article;
